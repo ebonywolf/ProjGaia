@@ -1,7 +1,8 @@
 #ifndef DRAWABLETYPE_H
 #define DRAWABLETYPE_H
-namespace pg {
-	class Sprite;
+namespace pg
+{
+class Sprite;
 
 class DrawableType
 {
@@ -9,7 +10,7 @@ class DrawableType
 		/** Default constructor */
 
 		/** Default destructor */
-		virtual ~DrawableType(){};
+		virtual ~DrawableType() {};
 
 		virtual pg::Sprite* getSprite() = 0;
 	protected:

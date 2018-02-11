@@ -1,7 +1,8 @@
 #ifndef LISTENER_H
 #define LISTENER_H
 
-namespace pg{
+namespace pg
+{
 template<class Tipo>
 class Listener
 {

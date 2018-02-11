@@ -70,7 +70,6 @@ void CameraMouseControl::notify ( MouseEvent e ) {
 
 }
 void CameraMouseControl::update(void* arg){
-    camera->pos+= move;
-
+    camera->getHitBox()->position+=move;
 }
 }

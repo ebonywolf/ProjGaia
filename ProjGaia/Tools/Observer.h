@@ -5,7 +5,8 @@
 #include "Listener.h"
 #include <list>
 
-namespace pg{
+namespace pg
+{
 template<class Tipo>
 class Observer
 {
@@ -24,28 +25,33 @@ class Observer
 };
 
 template <typename T>
-void Observer<T>::addListener ( Listener<T>* listener ) {
+void Observer<T>::addListener ( Listener<T>* listener )
+{
 	listeners.push_back ( listener );
 }
 template <typename T>
-void Observer<T>::removeListener ( Listener<T>* listener ) {
+void Observer<T>::removeListener ( Listener<T>* listener )
+{
 	listeners.remove ( listener );
 }
 template <typename T>
-void Observer<T>::clearListener ( ) {
+void Observer<T>::clearListener ( )
+{
 	listeners.clear();
 }
 template <typename T>
-bool Observer<T>::hasListener ( Listener<T>* listener ) {
-for ( auto x: listeners ) {
-		if ( x == listener ) return true;
+bool Observer<T>::hasListener ( Listener<T>* listener )
+{
+	for ( auto x : listeners ) {
+		if ( x == listener ) { return true; }
 	}
 	return false;
 
 }
 template <typename T>
-void Observer<T>::notifyListeners ( T t ) {
-for ( auto x: listeners ) {
+void Observer<T>::notifyListeners ( T t )
+{
+	for ( auto x : listeners ) {
 		x->notify ( t );
 	}
 }

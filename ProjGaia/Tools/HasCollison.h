@@ -2,14 +2,15 @@
 #define HASCOLLISON_H
 #include "HitBox.h"
 
-namespace pg{
+namespace pg
+{
 class HasCollison
 {
 	public:
 
-        virtual ~HasCollison()=default;
+		virtual ~HasCollison() = default;
 
-		virtual HitBox* getHitBox() =0;
+		virtual HitBox* getHitBox()const = 0;
 
 	protected:
 	private:

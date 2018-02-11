@@ -2,18 +2,31 @@
 #define CAMERA_H
 #include "../Tools/Coord.h"
 //TODO :Camera field of view
-namespace pg{
-class Camera
+#include "../Tools/SquareHitBox.h"
+#include "../Tools/HasCollison.h"
+namespace pg
 {
+class Camera: public HasCollison{
 	public:
-		Camera();
+		Camera(pg::Coord size = Coord(500,500), pg::Coord position=Coord(0,0),double rotation=0);
+		Camera(SquareHitBox* hb):hb(hb){};
 		virtual ~Camera();
 
-		double zoom = 1;
-		double rotation = 0;
-		pg::Coord pos;
+		void zoom(double z){hb->scale({z,z}); }
+		void rotate(double z){hb->rotate(z); _rotation+=z; }
+		void move(pg::Coord cord);
+		void moveFixed(pg::Coord cord){hb->move(cord);}
+		Coord getZoom()const {return hb->getScale();}
 
+
+
+		pg::Coord origin;
+        pg::SquareHitBox* hb;
+
+        pg::HitBox* getHitBox()const {return hb;}
+    double _rotation=0;
 	protected:
+
 	private:
 };
 
